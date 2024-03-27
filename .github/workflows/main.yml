@@ -20,10 +20,13 @@ jobs:
 
     - name: Run Main Script
       id: event
-      run: python main.py
+      run: | 
+          $output=(python main.py)
+          Write-Output "::set-output name=params::$output"
+        
     
     - name: Run Event Script
       run: | 
         echo "${{ toJson(steps.event.outputs)}}"
-        python event.py  --params ${{ toJson(steps.event.outputs)}}
+        python event.py  --params ${{ toJson(steps.event.outputs.params)}}
 
