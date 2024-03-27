@@ -22,6 +22,7 @@ jobs:
       id: event
       run: | 
           output_var=$(python main.py)
+          echo  $output_var
           echo "::set-output name=params::$output_var"
           
           
