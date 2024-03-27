@@ -18,6 +18,12 @@ if __name__ == "__main__":
         "total_failure": 10,
         "total_sucess": 10,
     })
+    with open("dummy.txt",'w') as f:
+        f.write('{
+        "total_count":30,
+        "total_failure": 10,
+        "total_sucess": 10,
+    }')
 
    
     logging.info("END")
