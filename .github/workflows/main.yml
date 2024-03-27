@@ -21,7 +21,7 @@ jobs:
     - name: Run Main Script
       id: event
       run: | 
-          $output=(python main.py)
+          output=$(python main.py)
           Write-Output "::set-output name=params::$output"
         
     
