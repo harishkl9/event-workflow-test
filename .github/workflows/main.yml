@@ -6,7 +6,7 @@ jobs:
   run-script:
 
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v3
 
@@ -21,12 +21,14 @@ jobs:
     - name: Run Main Script
       id: event
       run: | 
-          params=$(python main.py) >> $GITHUB_OUTPUT
+          output_var=$(python main.py)
+          echo "::set-output name=params::$output_var
+          
           
         
     
     - name: Run Event Script
       run: | 
         echo "${{ toJson(steps.event.outputs)}}"
-        python event.py  --params ${{ toJSON(steps.event.outputs.params)}}
+        python event.py  --params ${{ steps.event.outputs.params}}
 
