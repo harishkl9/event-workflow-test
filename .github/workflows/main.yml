@@ -23,5 +23,7 @@ jobs:
       run: python main.py
     
     - name: Run Event Script
-      run: python event.py  --params ${{ steps.event.outputs.result}}
+      run: | 
+        echo "${{ steps.event.outputs}}"
+        python event.py  --params ${{ steps.event.outputs.result}}
 
