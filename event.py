@@ -2,16 +2,7 @@ import sys
 import logging
 import argparse
 
-def return_args(args):
-
-    file = open("myfile.txt","w")
-    L = ["This is dummy logging  \n","to check github workflow \n"]
-
-
-    file.write("Hello There \n")
-    file.writelines(L)
-    file.close()
-    
+def return_args(args):    
     return args
 if __name__ == "__main__":
     logging.basicConfig(
