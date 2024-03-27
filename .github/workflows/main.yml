@@ -25,5 +25,5 @@ jobs:
     - name: Run Event Script
       run: | 
         echo "${{ steps.event.outputs}}"
-        python event.py  --params ${{ steps.event.outputs.result}}
+        python event.py  --params ${{ steps.event.outputs}}
 
