@@ -22,8 +22,8 @@ jobs:
     - name: Run Main Script
       id: event
       run: | 
-          output_var=$(python main.py)
-          echo  $output_var
+          python main.py
+          output_var = $(cat dummy.txt)
           echo "::set-output name=params::$output_var"    
   job2:
     runs-on: ubuntu-latest
