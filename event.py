@@ -11,13 +11,9 @@ if __name__ == "__main__":
     
     logging.info("scrip event or job event")
     parser = argparse.ArgumentParser()
-    parser.add_argument("-params",help="provide key for maping pd service with entities",default=None)
+    parser.add_argument("--params",help="provide key for maping pd service with entities",default=None)
     args = vars(parser.parse_args(sys.argv[1:]))
-    logging.info({
-        "total_count":30,
-        "total_failure": 10,
-        "total_sucess": 10,
-    })
+    logging.info(args)
 
    
     logging.info("END")
