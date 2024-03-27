@@ -3,8 +3,16 @@ import logging
 import argparse
 
 def return_args(args):
-    return args
 
+    file = open("myfile.txt","w")
+    L = ["This is dummy logging  \n","to check github workflow \n"]
+
+
+    file.write("Hello There \n")
+    file.writelines(L)
+    file.close()
+    
+    return args
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
