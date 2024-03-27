@@ -3,10 +3,11 @@ name: run-python-script
 on: [push]
 
 jobs:
-  run-script:
-
+  job1:
     runs-on: ubuntu-latest
-    
+    outputs:
+      output1: ${{ steps.event.outputs.params}}
+
     steps:
     - uses: actions/checkout@v3
 
@@ -23,13 +24,22 @@ jobs:
       run: | 
           output_var=$(python main.py)
           echo  $output_var
-          echo "::set-output name=params::$output_var"
-          
-          
-        
-    
+          echo "::set-output name=params::$output_var"    
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  
     - name: Run Event Script
       run: | 
-        echo "${{ toJson(steps.event.outputs)}}"
-        python event.py  --params ${{ toJSON(steps.event.outputs.params)}}
+        echo "${{ toJson(needs.job1.outputs.output1)}}"
+        python event.py  --params ${{ toJson(needs.job1.outputs.output1)}}
 
