@@ -2,6 +2,9 @@ import sys
 import logging
 import argparse
 
+def return_args(args):
+    return args
+
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
@@ -13,10 +16,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--params",help="provide key for maping pd service with entities",default=None)
     args = vars(parser.parse_args(sys.argv[1:]))
-    logging.info(args)
+    return_args(args)
 
    
     logging.info("END")
-
-
-
