@@ -12,7 +12,7 @@ jobs:
       id: event
       run: | 
           
-          input=$(bash event-workflow-test/sample.sh) 
+          input=$(bash scripts/sample.sh) 
           echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
