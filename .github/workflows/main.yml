@@ -21,7 +21,7 @@ jobs:
     - name: Run Main Script
       id: event
       run: |
-          input=$(python main.py) 
+          input=$(bash scripts/sample.sh) 
           echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
