@@ -21,7 +21,8 @@ jobs:
     - name: Run Main Script
       id: event
       run: |
-          input=$(bash scripts/sample.sh) 
+          bash scripts/sample.sh
+          input=$(cat status.log) 
           echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
