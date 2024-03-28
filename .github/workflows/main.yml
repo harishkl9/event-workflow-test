@@ -22,8 +22,8 @@ jobs:
       id: event
       run: |
           bash scripts/sample.sh
-          input=$(cat status.log) >> $GITHUB_OUTPUT 
-          echo $input
+          echo "input=$(cat status.log)" >> $GITHUB_OUTPUT 
+          # echo $input
           # echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
