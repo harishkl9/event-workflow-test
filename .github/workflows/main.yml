@@ -24,8 +24,8 @@ jobs:
       run: | 
           input=$(python main.py) 
           echo $input
-          output_var=$(cat dummy.txt)
-          echo "::set-output name=params::$output_var"    
+          # output_var=$(cat dummy.txt)
+          echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
     needs: job1
