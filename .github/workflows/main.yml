@@ -6,7 +6,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.event.outputs.params}}
+      output1: ${{ steps.event.outputs.input}}
     steps:
     - uses: actions/checkout@v3
 
@@ -22,8 +22,8 @@ jobs:
       id: event
       run: |
           bash scripts/sample.sh
-          input=$(cat status.log) 
-          echo "::set-output name=params::$input"    
+          input=$(cat status.log) >> $GITHUB_OUTPUT
+          # echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
     needs: job1
