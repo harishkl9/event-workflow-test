@@ -23,8 +23,6 @@ jobs:
       id: event
       run: | 
           input=$(python main.py) 
-          echo $input
-          # output_var=$(cat dummy.txt)
           echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
@@ -41,6 +39,6 @@ jobs:
       run: pip install -r requirements.txt  
     - name: Run Event Script
       run: | 
-        echo "${{ toJson(needs.job1.outputs.output1)}}"
+        
         python event.py  --params ${{ toJson(needs.job1.outputs.output1)}}
 
