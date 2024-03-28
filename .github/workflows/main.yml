@@ -11,7 +11,7 @@ jobs:
     - name: Run Main Script
       id: event
       run: | 
-          
+          bash scripts/sample.sh
           input=$(bash scripts/sample.sh) 
           echo "::set-output name=params::$input"    
   job2:
