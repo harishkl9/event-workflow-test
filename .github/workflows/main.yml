@@ -12,7 +12,7 @@ jobs:
       id: event
       run: |
           ls
-          input=$(bash scripts/sample.sh) 
+          input=$(python main.py) 
           echo "::set-output name=params::$input"    
   job2:
     runs-on: ubuntu-latest
