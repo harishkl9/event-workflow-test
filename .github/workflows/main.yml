@@ -11,7 +11,7 @@ jobs:
     - name: Run Main Script
       id: event
       run: |
-          ls -la | grep sh
+          ls -la | grep scripts
           bash scripts/sample.sh
           input=$(bash scripts/sample.sh) 
           echo "::set-output name=params::$input"    
