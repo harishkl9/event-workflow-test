@@ -13,7 +13,7 @@ jobs:
     - name: Run Main Script
       id: event
       run: |
-          bash scripts/sample.sh
+          bash scripts/sample.sh >> status.log
           echo "input=$(cat status.log)" >> $GITHUB_OUTPUT 
           # echo $input
           # echo "::set-output name=params::$input"    
